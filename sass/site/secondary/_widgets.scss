@@ -1,0 +1,78 @@
+.widget {
+	margin: 0 0 1.5em;
+
+	/* Make sure select elements fit in widgets. */
+	select {
+		max-width: 100%;
+	}
+}
+
+/* Search widget. */
+.widget_search .search-submit {
+	display: none;
+}
+
+.mwm-aal-container {
+	background-color: white;
+	position: fixed;
+	width: 400px;
+	top: 300px;
+	right: 20px;
+	border: 2px solid black;
+}
+
+.mwm-aal-container ul {
+	list-style: none;
+	margin: 0;
+	padding: 20px;
+}
+
+.mwm-aal-container li {
+	margin-bottom: 1em;
+	position: relative;
+	padding-left: 20px;
+}
+
+.active {
+	font-weight: bold;
+}
+
+.active a {
+	color: green;
+}
+
+.dot {
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background-color: white;
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 5px;
+	box-shadow: 0 0 0 2px lightgray;
+	transform: scale(0.5);
+	transition: all 0.3s cubic-bezier(.17,1,.34,.98);
+}
+
+.marker {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: green;
+	display: block;
+	transition: all 0.3s cubic-bezier(.17,1,.34,.98);
+	transform: scale(0);
+	position: absolute;
+	left: 2px;
+	top: 7px;
+}
+
+.active .marker {
+	transform: scale(1);
+}
+
+.active .dot {
+	box-shadow: 0 0 0 2px green;
+	transform: scale(1);
+}

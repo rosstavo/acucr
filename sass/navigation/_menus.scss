@@ -1,0 +1,64 @@
+.main-navigation {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	max-width: 350px;
+	background-color: red;
+	z-index: 2;
+	background-color: $color__main;
+	overflow: scroll;
+
+	ul {
+		margin-left: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.pagenav {
+		font-weight: bold;
+		margin-bottom: 0;
+
+		a {
+			display: block;
+			width: 100%;
+			height: 100%;
+			padding: 5px 10px;
+			text-decoration: none;
+		}
+
+		> li {
+			border-top: 4px solid #F8B096;
+		}
+
+		ul {
+			background-color: #F2F2F2;
+			max-width: 100%;
+			width: 100%;
+
+			ul li a {
+				padding-left: 20px;
+				font-weight: normal;
+			}
+		}
+		.current_page_item > a {
+			background-color: $color__highlight;
+			color: white;
+			font-weight: 900;
+		}
+	}
+
+	.current-menu-item > a,
+	.current_page_ancestor > a {
+		font-weight: 900;
+	}
+
+}
+.menu-toggle {
+	display: block;
+	position: absolute;
+	left: 100%;
+	top: 0;
+	z-index: 2;
+}

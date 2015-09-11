@@ -1,0 +1,39 @@
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+textarea {
+	color: $color__text-input;
+	border: 2px solid $color__border-input;
+	border-radius: 20px;
+
+	&:focus {
+		color: $color__text-input-focus;
+		outline: none;
+		border-color: $color__highlight;
+	}
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"] {
+	padding: 5px 5px 5px 33px;
+}
+
+textarea {
+	padding-left: 3px;
+	width: 100%;
+}
+
+.search-field {
+	background-image: url("img/search.png");
+	background-repeat: no-repeat;
+	background-position: 9px 9px;
+}
+
+.search-submit {
+	display: none;
+}
