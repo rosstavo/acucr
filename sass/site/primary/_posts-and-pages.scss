@@ -1,5 +1,26 @@
-.page {
+body.page,
+body.search {
 	position: relative;
+	padding-bottom: 250px;
+	min-height: 100%;
+	max-width: 100%;
+	overflow-x: hidden;
+}
+
+.site {
+	position: relative;
+	left: 0;
+	transition: left 0.3s ease;
+
+	&.nav-open {
+		left: 350px;
+	}
+}
+
+@media all and (min-width: $size__site-main) {
+	.site {
+		padding-left: 350px;
+	}
 }
 
 .sticky {
@@ -33,6 +54,10 @@
 
 .type-page {
 	padding: 50px 50px 0;
+}
+
+.type-page.chapter,
+.type-page.home {
 	background-color: white;
 }
 
@@ -42,7 +67,12 @@
 	background: none;
 }
 
-.search-results {
+.site-main .article {
+	margin-top: -50px;
+	padding: 0 50px 0 100px;
+}
+
+.site-main .search-results {
 	position: relative;
 	z-index: 1;
 
@@ -67,34 +97,54 @@
 .site-main .home,
 .site-main .chapter,
 .site-main .search-results {
-	margin-top: -150px;
-}
-
-.featured-image__chapter {
-	max-width: 1000px;
-	margin: 0 auto;
-	height: 370px;
-	background-color: #f2f2f2;
-	background-size: cover;
+	margin-top: -100px;
 	position: relative;
 }
 
-.featured-image__search {
-	max-width: 1000px;
+.featured-image {
 	margin: 0 auto;
-	height: 370px;
-	background-image: url("img/search.jpg");
-	background-size: cover;
-	position: relative;
-}
-
-.featured-image__subchapter {
-	max-width: 1000px;
-	margin: 0 auto;
-	height: 220px;
 	background-color: #f2f2f2;
 	background-size: cover;
 	background-position: center;
+	position: relative;
+
+	.masthead {
+		text-align: center;
+		margin: 0 auto;
+		display: block;
+	}
+}
+
+.featured-image__chapter {
+	height: 370px;
+
+	.masthead {
+		padding: 50px;
+		max-width: 770px;
+	}
+}
+
+.featured-image__search {
+	height: 370px;
+	background-image: url("img/search.jpg");
+}
+
+.featured-image__subchapter {
+	height: 300px;
+
+	.masthead {
+		padding: 50px 100px 0 150px;
+		width: 100%;
+	}
+}
+
+.featured-image__article {
+	height: 220px;
+
+	.masthead {
+		padding: 50px 100px 0 150px;
+		width: 100%;
+	}
 }
 
 .entry-header {
@@ -111,7 +161,6 @@
 	background-color: $color__main;
 	border-left: 10px solid $color__highlight;
 	padding: 50px;
-	margin-left: -60px;
 	margin-bottom: 40px;
 
 	h2 {
@@ -186,12 +235,13 @@
 
 
 .subchapter-index {
+	display: none;
 	font-family: $font__main;
 	list-style-position: inside;
 	position: absolute;
 	top: 0;
 	right: 100%;
-	width: 400px;
+	width: 350px;
 	margin: 0 20px 0 0;
 	padding: 12px 0 20px 50px;
 	text-align: right;

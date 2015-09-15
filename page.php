@@ -19,12 +19,42 @@ get_header(); ?>
 
 		<?php if ( !is_child() ) : ?>
 
-			<div class="featured-image__chapter" style="background-image:url(<?php echo $image_url[0]; ?>);">
+			<div class="featured-image featured-image__chapter" style="background-image:url(<?php echo $image_url[0]; ?>);">
+				<div class="masthead">
+					<h2 class="site-title">
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+							<img src="<?php echo get_template_directory_uri(); ?>/img/logo-small.png" alt="Site logo" class="site-logo"><br>
+							<?php bloginfo( 'name' ); ?>
+						</a>
+					</h2>
+				</div>
 			</div>
 
-		<?php elseif ( is_child() && is_parent() ) : ?>
+		<?php elseif (is_parent() && is_child()) : ?>
 
-			<div class="featured-image__subchapter" style="background-image:url(<?php echo $image_url[0]; ?>);"></div>
+			<div class="featured-image featured-image__subchapter" style="background-image:url(<?php echo $image_url[0]; ?>);">
+				<div class="masthead">
+					<h3 class="site-title">
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+							<img src="<?php echo get_template_directory_uri(); ?>/img/logo-small.png" alt="Site logo" class="site-logo"><br>
+							<?php bloginfo( 'name' ); ?>
+						</a>
+					</h3>
+				</div>
+			</div>
+
+		<?php else : ?>
+
+			<div class="featured-image featured-image__article" style="background-image:url(<?php echo $image_url[0]; ?>);">
+				<div class="masthead">
+					<h3 class="site-title">
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+							<img src="<?php echo get_template_directory_uri(); ?>/img/logo-small.png" alt="Site logo" class="site-logo"><br>
+							<?php bloginfo( 'name' ); ?>
+						</a>
+					</h3>
+				</div>
+			</div>
 
 		<?php endif; ?>
 
@@ -32,21 +62,17 @@ get_header(); ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php 
+				<?php
 					if ( is_parent() && !is_child() ) {
-						get_template_part( 'content', 'chapter' ); 
-					}
-					elseif ( is_parent() && is_child() ) {
-						get_template_part( 'content', 'subchapter' ); 
-					}
-					elseif ( !is_parent() && is_child() ) {
-						get_template_part( 'content', 'article' ); 
-					}
-					elseif ( is_front_page () ) {
-						get_template_part( 'content', 'home' ); 
-					}
-					else {
-						get_template_part( 'content', 'page' ); 
+						get_template_part( 'content', 'chapter' );
+					} else if ( is_parent() && is_child() ) {
+						get_template_part( 'content', 'subchapter' );
+					} else if ( !is_parent() && is_child() ) {
+						get_template_part( 'content', 'article' );
+					} else if ( is_front_page () ) {
+						get_template_part( 'content', 'home' );
+					} else {
+						get_template_part( 'content', 'page' );
 					}
 
 				?>

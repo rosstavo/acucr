@@ -1,5 +1,5 @@
 .comments-area {
-	padding: 0 50px;
+	padding: 0 50px 0 100px;
 
 	.children {
 		margin-left: 0;
@@ -10,11 +10,8 @@
 .comment {
 	border-left: 13px solid #E6E6E6;
 	padding: 15px 0 0 15px;
-	background-color: rgba(255,255,255,0.3);
-
 }
 .comment.depth-1 {
-	@include gradient(#fcfcfc, #f6f6f6);
 	border: 1px solid #E6E6E6;
 	border-radius: 15px 15px 15px 0;
 	padding: 15px;

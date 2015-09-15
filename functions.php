@@ -70,6 +70,22 @@ function acucr_setup() {
 endif; // acucr_setup
 add_action( 'after_setup_theme', 'acucr_setup' );
 
+function acucr_update_settings() {
+	register_setting('acucr-settings', 'acucr_menu');
+}
+
+function acucr_update_menu() {
+	$walker = new Custom_Walker();
+	$menu = wp_list_pages(array(
+		'title_li' => '',
+		'echo' => false,
+		'walker' => $walker
+	));
+
+	update_option('acucr_menu', $menu);
+}
+add_action('save_post', 'acucr_update_menu');
+
 function romanNumerals($num){
     $n = intval($num);
     $res = '';

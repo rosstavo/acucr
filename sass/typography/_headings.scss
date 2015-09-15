@@ -24,11 +24,13 @@ h3 {
 }
 
 .logo-heading {
-	height: 47px;
+	min-height: 50px;
+	height: auto;
 	color: $color__highlight;
 	border-bottom: 2px solid $color__highlight;
 	background-image: url("img/logo-heading.png");
 	background-repeat: no-repeat;
-	padding: 10px 60px;
+	background-position: left bottom;
+	padding: 10px 0 3px 60px;
 	border-radius: 0 0 0 3px;
 }

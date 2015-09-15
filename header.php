@@ -19,35 +19,35 @@
 <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?> id="top">
+<body <?php body_class('nav-open'); ?> id="top">
 
 <nav id="site-navigation" class="main-navigation" role="navigation">
-	<button class="menu-toggle" aria-controls="menu" aria-expanded="false"><?php _e( '&#9776; Menu', 'acucr' ); ?></button>
-	<ul class="pagenav">
+	<div class="nav-header">
+		<div class="site-search"><?php get_search_form( true ); ?></div>
+	</div>
+
+	<ul class="pagenav" id="pagenav">
 		<?php
-			$walker = new Custom_Walker();
-			wp_list_pages(array(
-				'title_li' => '',
-				'walker' => $walker
-			));
+			$pageClass = 'page-item-' . $_GET['page_id'];
+			$menu = get_option( 'acucr_menu' );
+
+			$menu = str_replace($pageClass . '"', $pageClass . ' current_page_item"', $menu);
+			$menu = str_replace($pageClass . ' page_item_has_children"', $pageClass . ' page_item_has_children current_page_item"', $menu);
+
+			echo $menu;
 		?>
 	</ul>
+
+	<div class="scroll" id="scroll"></div>
+	<footer class="nav-footer">
+		<p><small><strong>A Church University Chaplaincy Resource</strong> is run by Rev. Dr. Jeremy Law. It was built by <a href="http://www.nevisonhardy.co.uk"><strong>Nevison Hardy Creative</strong></a> using the <a href="http://www.wordpress.org"><strong>Wordpress</strong></a> platform.</small></p>
+	</footer>
 </nav><!-- #site-navigation -->
 
 <div id="page" class="hfeed site">
+
+	<button class="nav-reveal" id="nav-reveal">Site Map</button>
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'acucr' ); ?></a>
 
-	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
-			<h2 class="site-title">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/logo-small.png" alt="Site logo" class="site-logo">
-					<?php bloginfo( 'name' ); ?>
-				</a>
-			</h2>
-			<div class="site-search"><?php get_search_form( true ); ?></div>
-		</div><!-- .site-branding -->
-
-	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

@@ -60,35 +60,4 @@
 
 	</div><!-- .entry-content -->
 
-	<div class="entry-content">
-		<?php
-
-		$posts = get_field('related_articles');
-
-		if( $posts ): ?>
-			<div class="post-list__small">
-				<h3 class="logo-heading">Related articles</h3>
-			    <ul>
-			    <?php foreach( $posts as $post): ?>
-			        <?php setup_postdata($post); ?>
-			        <li>
-						<?php the_post_thumbnail('thumbnail') ?>
-						<span class="chapter-name__small">
-							<?php
-								echo get_the_title( $post->post_parent );
-							?>
-						</span>
-						<a href="<?php the_permalink(); ?>">
-							<?php the_title(); ?>
-						</a>
-
-			        </li>
-			    <?php endforeach; ?>
-			    </ul>
-			</div>
-		    <?php wp_reset_postdata(); ?>
-		<?php endif; ?>
-
-	</div>
-
 </article><!-- #post-## -->
